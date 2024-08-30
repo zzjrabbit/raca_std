@@ -1,3 +1,4 @@
+/// The argument structure to the create_process syscall
 #[repr(C, packed)]
 #[derive(Clone, Copy, Debug)]
 pub struct Process {
@@ -10,6 +11,7 @@ pub struct Process {
 }
 
 impl Process {
+    /// create a new structure with the following arguments
     pub fn new(binary: &[u8], name: &str, stdin: usize, stdout: usize) -> Self {
         Self {
             binary_addr: binary.as_ptr() as usize,
@@ -21,6 +23,7 @@ impl Process {
         }
     }
 
+    /// start to run the process, returns the pid.
     pub fn run(&self) -> usize {
         const CREATE_PROCESS_SYSCALL_ID: u64 = 6;
         crate::syscall(
@@ -34,6 +37,7 @@ impl Process {
     }
 }
 
+/// Exit with code `code`
 pub fn exit(code: usize) -> ! {
     const EXIT_SYSCALL_ID: u64 = 21;
     crate::syscall(EXIT_SYSCALL_ID, code, 0, 0, 0, 0);
@@ -41,6 +45,7 @@ pub fn exit(code: usize) -> ! {
     loop {} // Never return
 }
 
+/// wait for a process created by your APP
 pub fn wait() -> usize {
     start_wait_for_signal(1);
     while !has_signal(1) {}

@@ -3,8 +3,6 @@
 
 pub extern crate alloc;
 
-/// Some debug syscall
-pub mod debug;
 /// File system syscall
 pub mod fs;
 /// stdin & stdout

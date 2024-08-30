@@ -5,6 +5,7 @@ use spin::Mutex;
 use crate::fs::FileDescriptor;
 
 impl FileDescriptor {
+    /// Read a line to the buf.
     pub fn read_line(&self, buf: &mut String) {
         buf.clear(); // make sure that the buf is clean
 
@@ -57,12 +58,14 @@ impl Stdin {
     }
 }
 
+/// Get stdin
 pub fn stdin() -> Stdin {
     Stdin {
         fd: FileDescriptor(0, false),
     }
 }
 
+/// Get stdout
 pub fn stdout() -> FileDescriptor {
     FileDescriptor(1, false)
 }
