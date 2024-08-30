@@ -2,6 +2,10 @@
 name = "raca_std"
 version = "14.0.0"
 edition = "2021"
+repository = "https://github.com/zzjrabbit/raca_std"
+description = "A simple rust std for racaOS"
+license = "MIT/Apache-2.0"
+keywords = ["os", "rust", "racaOS", "std"]
 
 [dependencies]
 x86_64 = "0.15.1"
