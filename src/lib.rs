@@ -3,14 +3,16 @@
 
 pub extern crate alloc;
 
-/// File system syscall
-pub mod fs;
-/// stdin & stdout
-pub mod io;
-/// memory
-pub mod mm;
-/// task
-pub mod task;
+///// File system syscall
+//pub mod fs;
+///// stdin & stdout
+//pub mod io;
+///// memory
+//pub mod mm;
+///// task
+//pub mod task;
+/// debug
+pub mod debug;
 
 use core::panic::PanicInfo;
 pub use core::*;
@@ -59,5 +61,6 @@ extern "C" {
 
 #[no_mangle]
 pub unsafe extern "sysv64" fn _start() -> ! {
-    task::exit(main());
+    //task::exit(main());
+    main();
 }

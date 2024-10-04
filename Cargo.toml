@@ -1,6 +1,6 @@
 [package]
 name = "raca_std"
-version = "14.0.1"
+version = "15.0.0"
 edition = "2021"
 repository = "https://github.com/zzjrabbit/raca_std"
 description = "A simple rust std for racaOS"
