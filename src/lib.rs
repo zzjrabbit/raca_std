@@ -19,8 +19,8 @@ pub use core::*;
 use x86_64::instructions::hlt;
 
 #[panic_handler]
-fn panic(info: &PanicInfo) -> ! {
-    println!("User Panic:{}", info);
+fn panic(_info: &PanicInfo) -> ! {
+    debug::debug("User Panic");
     loop {}
 }
 
@@ -63,4 +63,5 @@ extern "C" {
 pub unsafe extern "sysv64" fn _start() -> ! {
     //task::exit(main());
     main();
+    loop {}
 }
