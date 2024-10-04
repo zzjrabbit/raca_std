@@ -1,7 +1,7 @@
 #![no_std]
 #![feature(naked_functions)]
 
-pub extern crate alloc;
+//pub extern crate alloc;
 
 ///// File system syscall
 //pub mod fs;
